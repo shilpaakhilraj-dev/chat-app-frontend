@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await API.get("/auth/me");
+        const res = await API.get(`/auth/me?token=${token}`);
         setUser(res.data);
       } catch (err) {
         console.error("Error loading user:", err);
@@ -59,12 +59,13 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await API.post("/auth/register", formData);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       setUser(res.data.user);
       return { success: true };
     } catch (err) {
       return {
         success: false,
-        message: err.response?.data?.message || "Registration failed",
+        message: err.response?.data?.detail || "Registration failed",
       };
     }
   };
@@ -74,12 +75,13 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await API.post("/auth/login", formData);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       setUser(res.data.user);
       return { success: true };
     } catch (err) {
       return {
         success: false,
-        message: err.response?.data?.message || "Login failed",
+        message: err.response?.data?.detail || "Login failed",
       };
     }
   };
@@ -87,6 +89,7 @@ export const AuthProvider = ({ children }) => {
   // Logout
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
   };
 

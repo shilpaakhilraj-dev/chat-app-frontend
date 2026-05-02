@@ -37,3 +37,29 @@
 body {
   margin: 0;
 }
+
+/* ── Custom scrollbar for chat list and messages area ── */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 99px;
+  margin: 6px 0;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.45);
+  border-radius: 99px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.75);
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(124, 58, 237, 0.9);
+}
+
+/* Firefox */
+.chat-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 58, 237, 0.45) transparent;
+}

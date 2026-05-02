@@ -26,7 +26,7 @@ const Register = () => {
       setLoading(false);
       return;
     }
-    navigate("/chat");
+    navigate("/login");
   };
 
   return (
