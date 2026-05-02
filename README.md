@@ -21,8 +21,8 @@ A modern **real-time chat application frontend** built using **React**, designed
 * **Frontend**: React
 * **State Management**: Context API / Hooks
 * **Realtime Communication**: WebSockets
-* **API Calls**: Axios
-* **Styling**: Tailwind
+* **API Calls**: Axios / Fetch
+* **Styling**: CSS / Tailwind (update if needed)
 * **Routing**: React Router
 
 ---
@@ -42,6 +42,7 @@ A modern **real-time chat application frontend** built using **React**, designed
 ├── public/
 ├── package.json
 └── README.md
+```
 
 ---
 
@@ -94,7 +95,7 @@ Developed by **Shilpa K**
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the MIT License.
 
