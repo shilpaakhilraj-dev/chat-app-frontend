@@ -13,7 +13,7 @@ export const useAuth = () => {
 
 // Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:8000/api", // change if needed
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api", // change if needed
 });
 
 // Attach token automatically

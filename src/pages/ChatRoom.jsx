@@ -133,6 +133,8 @@ const ChatRoom = () => {
   // Stable ref so polling interval always reads latest chats without restarting
   const chatsRef = useRef([]);
 
+  const WS_URL = import.meta.env.VITE_WS_URL || "ws://localhost:8000";
+
   // ── Keep chatsRef in sync with chats state ────────────────────────────────
   useEffect(() => {
     chatsRef.current = chats;
@@ -290,7 +292,7 @@ const ChatRoom = () => {
       )
         return;
 
-      const ws = new WebSocket(`ws://localhost:8000/ws/${chat.id}/${user.id}`);
+      const ws = new WebSocket(`${WS_URL}/ws/${chat.id}/${user.id}`);
 
       ws.onopen = () => {
         retryCountRef.current[chat.id] = 0;
@@ -385,7 +387,7 @@ const ChatRoom = () => {
   // ── User-level WS: listens for new conversations ──────────────────────────
   useEffect(() => {
     if (!user) return;
-    const ws = new WebSocket(`ws://localhost:8000/ws/user/${user.id}`);
+    const ws = new WebSocket(`${WS_URL}/ws/user/${user.id}`);
     ws.onopen = () => console.log("User-level WS connected:", user.id);
     ws.onmessage = (event) => {
       try {
