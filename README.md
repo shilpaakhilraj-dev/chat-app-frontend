@@ -1,16 +1,101 @@
-# React + Vite
+# Chat App Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **real-time chat application frontend** built using **React**, designed to work seamlessly with a FastAPI + WebSocket backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+* 🔐 User Authentication (Login / Register)
+* 💬 Real-time messaging via WebSockets
+* 👥 One-to-one chat interface
+* 🟢 Online / Offline user status
+* ⏱ Last seen indicator
+* 📩 Message read receipts
+* ⚡ Responsive and clean UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend**: React
+* **State Management**: Context API / Hooks
+* **Realtime Communication**: WebSockets
+* **API Calls**: Axios
+* **Styling**: Tailwind
+* **Routing**: React Router
+
+---
+
+## Project Structure
+
+```id="s1h8x2"
+.
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Application pages (Chat, Login, Register)
+│   ├── services/        # API & WebSocket services
+│   ├── context/         # Global state management
+│   ├── utils/           # Helper functions
+│   ├── App.js           # Root component
+│   └── index.js         # Entry point
+├── public/
+├── package.json
+└── README.md
+
+---
+
+## WebSocket Flow
+
+1. User connects to WebSocket
+2. Sends/receives messages in real-time
+3. Presence updates (online/offline)
+4. Messages broadcast to participants instantly
+
+---
+
+## Key Functionalities
+
+### Authentication
+
+* JWT-based login/register
+* Token stored in local storage/session
+
+### Chat System
+
+* Create or open conversations
+* Send & receive messages instantly
+* View chat history
+
+### Presence Tracking
+
+* Shows online users in real-time
+* Displays last seen when offline
+
+### Read Receipts
+
+* Messages marked as read when opened
+
+---
+
+## UI Highlights
+
+* Clean chat interface
+* Responsive layout (mobile + desktop)
+* User-friendly navigation
+* Real-time updates without refresh
+
+
+---
+
+## Author
+
+Developed by **Shilpa K**
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
